@@ -116,7 +116,7 @@ class Db {
   ServerConfig _parseUri(String uriString) {
     var uri = Uri.parse(uriString);
 
-    if (uri.scheme != 'mongodb') {
+    if (!(const ['mongodb','mongodb+srv'].contains(uri.scheme))) {
       throw MongoDartError('Invalid scheme in uri: $uriString ${uri.scheme}');
     }
 
